@@ -9,7 +9,9 @@ const s3 = new S3({
   region: process.env.AWS_REGION,
 });
 
-const bucketName = process.env.AWS_BUCKET_NAME;
+const { aws } = require('../config');
+const bucketName = aws.bucketName;
+
 
 async function saveToS3(filePath) {
   if (!bucketName) {
